@@ -1,11 +1,12 @@
 import express from "express"
-import userRoutes from "./routes/user.routes.js"
+import userRouter from "./routes/user.routes.js"
 const app = express()
+import cors from "cors"
 
-app.get("/", (req, res) => {
-  res.send("Hello World")
-})
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use("/user", userRoutes)
+app.use("/user", userRouter)
+
+
 export { app }

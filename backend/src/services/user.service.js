@@ -1,17 +1,23 @@
-import { asyncHandler } from "../utils/asyncHandler.js"
 import { userModel } from "../models/user.model.js"
 
-const createUser = asyncHandler((req, res) => {
-  firstName, lastName, email, password
-  if (!firstName || lastName || email || password) {
-    throw new Error("All fields are required!")
+const createUser = async ({ firstName, lastName, email, password }) => {
+  // Check if user with this email already exists
+  const existingUser = await userModel.findOne({ email })
+  if (existingUser) {
+    throw new Error("Email already registered")
   }
-  const user = userModel.create({
-    fullName: { firstName, lastName },
+
+ 
+  const user = await userModel.create({
+    fullName: {
+      firstName,
+      lastName: lastName || "", // Make lastName optional
+    },
     email,
     password,
   })
-  return user
-})
 
-export default createUser
+  return user
+}
+
+export { createUser }
