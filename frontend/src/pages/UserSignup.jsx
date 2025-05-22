@@ -10,7 +10,7 @@ const UserSignup = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     setUserData({
-      username: { firstName: firstName, lastName: lastName },
+      fullName: { firstName: firstName, lastName: lastName },
       email: email,
       password: password,
     })
@@ -19,7 +19,7 @@ const UserSignup = () => {
     setLastName("")
     setFirstName("")
   }
-  console.log(userData)
+
   return (
     <>
       <div className="p-7 flex flex-col justify-between h-screen">
@@ -86,9 +86,9 @@ const UserSignup = () => {
         </div>
         <div>
           <p className="text-[10px] leading-tight">
-            By proceeding, you consent to get calls, emails or SMS messages,
-            including by automated means, from Uber and its affliates tro the
-            number provided.
+            This site is protected by reCAPTCHA and the{" "}
+            <span className="underline">google Privacy Policy</span>
+            and <span className="underline">Terms of Services</span> apply.
           </p>
         </div>
         {/* <div>

@@ -10,7 +10,7 @@ const CaptainSignUp = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     setUserData({
-      username: { firstName: firstName, lastName: lastName },
+      fullName: { firstName: firstName, lastName: lastName },
       email: email,
       password: password,
     })
@@ -19,7 +19,7 @@ const CaptainSignUp = () => {
     setLastName("")
     setFirstName("")
   }
-  console.log(userData)
+
   return (
     <>
       <div className="p-7 flex flex-col justify-between h-screen">
@@ -77,7 +77,7 @@ const CaptainSignUp = () => {
             </button>
             <p className="text-center">
               Already have a account ?{"   "}
-              <Link to="/login" className="text-blue-600">
+              <Link to="/captain-login" className="text-blue-600">
                 {" "}
                 Log in
               </Link>
