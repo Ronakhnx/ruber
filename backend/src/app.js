@@ -1,6 +1,7 @@
 import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
+import captainRoutes from "./routes/captain.route.js"
 import userRoutes from "./routes/user.route.js"
 import cookieParser from "cookie-parser"
 dotenv.config()
@@ -13,6 +14,6 @@ app.use(express.urlencoded({ extended: true }))
 app.get("/", (req, res) => {
   res.send("Welcome to the home page")
 })
-app.use("/user", userRoutes)
-app.use("captain", captainRoutes)
+app.use("/users", userRoutes)
+app.use("/captain", captainRoutes)
 export { app }

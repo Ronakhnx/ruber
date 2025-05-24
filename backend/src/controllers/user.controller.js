@@ -1,7 +1,7 @@
 import userModel from "../models/user.model.js"
 import { validationResult } from "express-validator"
 import { createUser } from "../services/user.service.js"
-import blackListedTokenModel from "../models/blacklistToken.model.js"
+import { blackListedTokenModel } from "../models/blacklistToken.model.js"
 
 const registerUser = async (req, res, next) => {
   const errors = validationResult(req)
@@ -11,8 +11,8 @@ const registerUser = async (req, res, next) => {
 
   const { fullname, email, password } = req.body
   const isUseExist = await userModel.findOne({ email })
-  if(isUseExist){
-    return res.status(400).json({message:"User already exist!"})
+  if (isUseExist) {
+    return res.status(400).json({ message: "User already exist!" })
   }
   const hashedPassword = await userModel.hashPassword(password)
 
@@ -24,7 +24,7 @@ const registerUser = async (req, res, next) => {
   })
 
   const token = await user.generateAuthToken()
-  return res.status(200).json({ token, user })
+  return res.status(201).json({ token, user })
 }
 
 const loginUser = async (req, res, next) => {

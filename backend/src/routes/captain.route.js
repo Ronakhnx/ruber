@@ -5,8 +5,8 @@ import {
   loginCaptain,
   logoutCaptain,
   getCaptainProfile,
-} from "../controllers/captain.controller"
-import { authCaptain } from "../middlewares/auth.middleware"
+} from "../controllers/captain.controller.js"
+import { authCaptain } from "../middlewares/auth.middleware.js"
 const router = express.Router()
 
 router.post(

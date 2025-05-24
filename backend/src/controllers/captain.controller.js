@@ -1,7 +1,7 @@
 import { validationResult } from "express-validator"
-import { captainModel } from "../models/captain.model"
-import { createCaptain } from "../services/captain.service"
-import { blackListedTokenModel } from "../models/blacklistToken.model"
+import { captainModel } from "../models/captain.model.js"
+import { createCaptain } from "../services/captain.service.js"
+import { blackListedTokenModel } from "../models/blacklistToken.model.js"
 
 const registerCaptain = async (req, res, next) => {
   const errors = validationResult(req)

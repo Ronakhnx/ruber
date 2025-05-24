@@ -1,4 +1,4 @@
-import blackListedTokenModel from "../models/blacklistToken.model.js"
+import { blackListedTokenModel } from "../models/blacklistToken.model.js"
 import { captainModel } from "../models/captain.model.js"
 import userModel from "../models/user.model.js"
 import jwt from "jsonwebtoken"
@@ -43,4 +43,4 @@ const authCaptain = async (req, res, next) => {
     return res.status(401).json({ message: "Unauthorized Access" })
   }
 }
-export { authUser ,authCaptain}
+export { authUser, authCaptain }

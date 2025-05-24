@@ -13,8 +13,8 @@ const blackListedTokenSchema = new mongoose.Schema({
   },
 })
 
-const blackListedTokenModel = mongoose.model(
+export const blackListedTokenModel = mongoose.model(
   "ruber_blacklistedToken",
   blackListedTokenSchema
 )
-export default blackListedTokenModel
+
