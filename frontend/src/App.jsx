@@ -7,8 +7,9 @@ import {
   CaptainLogin,
   CaptainSignup,
   Start,
+  UserLogout,
+  UserProtectedWrapper,
 } from "./pages/index.js"
-import UserProtectedWrapper from "./pages/UserProtectedWrapper.jsx"
 
 const App = () => {
   return (
@@ -24,6 +25,14 @@ const App = () => {
           element={
             <UserProtectedWrapper>
               <Home />
+            </UserProtectedWrapper>
+          }
+        />
+        <Route
+          path="/user/logout"
+          element={
+            <UserProtectedWrapper>
+              <UserLogout />
             </UserProtectedWrapper>
           }
         />
